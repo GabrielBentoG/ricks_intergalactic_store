@@ -46,6 +46,6 @@ class ProductCategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_category_params
-      params.require(:product_category).permit(:product_id, :category_id)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)   
     end
 end
